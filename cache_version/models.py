@@ -16,4 +16,4 @@ def get_model_cache_version(model):
     for field in inspected_model.many_fields:
         fields_and_types[field] = getattr(model, field)
 
-    return hashlib.sha1(str(fields_and_types)).hexdigest()
+    return hashlib.sha1(str(fields_and_types).encode('utf-8')).hexdigest()
